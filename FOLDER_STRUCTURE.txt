@@ -1,0 +1,51 @@
+con_nursing_exam/
+|-- index.html
+|-- _redirects
+|-- netlify.toml
+|-- README_UPLOAD_NETLIFY.txt
+|-- STUDENT_CREDENTIALS_MESSAGE.txt
+|-- FOLDER_STRUCTURE.txt
+|-- assets/
+|   |-- app.js
+|   |-- data.js
+|   |-- styles.css
+|-- student/
+    |-- login.html
+    |-- dashboard.html
+    |-- test.html
+    |-- result.html
+    |-- logout.html
+
+Main files:
+
+1. student/login.html
+   Student login page.
+
+2. student/dashboard.html
+   Student name, username, and test details page.
+
+3. student/test.html
+   84 MCQs with 30 minute timer.
+   It also contains the hidden Netlify form named exam-results.
+
+4. student/result.html
+   Score and pass/fail result page.
+
+5. assets/data.js
+   Student usernames/passwords and all 84 Anatomy & Physiology questions.
+
+6. assets/app.js
+   Login, timer, test submit, result, and logout logic.
+
+7. assets/styles.css
+   Full software styling.
+
+8. _redirects
+   Netlify redirects for PHP-style links.
+
+Upload:
+Upload the full con_nursing_exam folder to Netlify, or upload the zip after extracting it.
+
+Results:
+After upload, student submissions will appear in:
+Netlify Dashboard > Your Site > Forms > exam-results

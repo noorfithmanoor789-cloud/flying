@@ -1,0 +1,8 @@
+/student/login.php      /student/login.html      200
+/student/dashboard.php  /student/dashboard.html  200
+/student/test.php       /student/test.html       200
+/student/submit.php     /student/result.html     200
+/student/result.php     /student/result.html     200
+/student/logout.php     /student/logout.html     200
+/index.php              /index.html              200
+/*                      /index.html              200

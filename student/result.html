@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result - College of Nursing Nawabshah</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+    <main class="page">
+        <section class="result-box">
+            <h1 class="brand-title">College of Nursing (Female)</h1>
+            <h2 class="brand-subtitle">Shaheed Benazirabad, Nawabshah</h2>
+            <hr>
+            <h2>Your Test Result</h2>
+            <p>Student: <strong id="studentName"></strong></p>
+            <p>Total Questions Attempted: <strong id="totalQuestions"></strong></p>
+            <p class="score" id="score"></p>
+            <h3 id="percentage"></h3>
+            <h3 id="status"></h3>
+            <p id="unscoredNote"></p>
+
+            <div class="actions">
+                <a href="dashboard.html" class="btn secondary">Back to Dashboard</a>
+                <a href="logout.html" class="btn" id="logoutLink">Logout</a>
+            </div>
+        </section>
+    </main>
+
+    <script src="../assets/data.js"></script>
+    <script src="../assets/app.js"></script>
+    <script>
+        ExamApp.initResult();
+    </script>
+</body>
+</html>

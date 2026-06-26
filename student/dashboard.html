@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - College of Nursing Nawabshah</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+    <main class="page">
+        <section class="container">
+            <h1 class="brand-title">College of Nursing (Female)</h1>
+            <h2 class="brand-subtitle">Shaheed Benazirabad, Nawabshah</h2>
+            <hr>
+            <h2>Welcome, <span id="studentName"></span></h2>
+            <p style="text-align:center;">Username: <strong id="studentUsername"></strong></p>
+
+            <div class="info">
+                <h3>Test Details:</h3>
+                <p><strong>Total Questions:</strong> 84</p>
+                <p><strong>Time Duration:</strong> 90 Minutes</p>
+                <p><strong>Date:</strong> 5 April 2026</p>
+                <p><strong>Link Active Till:</strong> 7 April 2026, 5:00 PM</p>
+            </div>
+
+            <div class="actions">
+                <a href="test.html" class="btn">Start Test Now</a>
+            </div>
+
+            <div class="actions">
+                <a href="logout.html" id="logoutLink">Logout</a>
+            </div>
+        </section>
+    </main>
+
+    <script src="../assets/data.js"></script>
+    <script src="../assets/app.js"></script>
+    <script>
+        ExamApp.initDashboard();
+    </script>
+</body>
+</html>
