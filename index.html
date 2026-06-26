@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>SanoN Singlereate · Ice Cream</title>
+  <!-- Font Awesome (free CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Font (modern) -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ----- RESET & BASE ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: #fcf8f0;
+      color: #2d2a24;
+      transition: background 0.3s, color 0.3s;
+      scroll-behavior: smooth;
+    }
+    a { text-decoration: none; color: inherit; }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    /* ----- DARK MODE ----- */
+    body.dark {
+      background: #1e1b1a;
+      color: #f0ebe3;
+    }
+    body.dark .card,
+    body.dark .testimonial-card,
+    body.dark .offer-card,
+    body.dark .menu-item,
+    body.dark .contact-form {
+      background: #2d2826;
+      color: #f0ebe3;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    }
+    body.dark .nav-bar {
+      background: #2a2522;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.6);
+    }
+    body.dark .hero {
+      background: linear-gradient(135deg, #3d2c28 0%, #5d3f36 100%);
+    }
+    body.dark .footer {
+      background: #1a1614;
+    }
+    body.dark input,
+    body.dark textarea {
+      background: #3b3532;
+      color: #f0ebe3;
+      border: 1px solid #5f554e;
+    }
+    /* ----- BUTTONS & UTILITIES ----- */
+    .btn {
+      display: inline-block;
+      background: #f7b731;
+      color: #1f1a16;
+      padding: 0.75rem 2rem;
+      border-radius: 50px;
+      font-weight: 700;
+      transition: all 0.25s ease;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 6px 14px rgba(247, 183, 49, 0.35);
+      letter-spacing: 0.3px;
+    }
+    .btn:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 12px 24px rgba(247, 183, 49, 0.5);
+      background: #facc55;
+    }
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #f7b731;
+      color: #f7b731;
+      box-shadow: none;
+    }
+    .btn-outline:hover {
+      background: #f7b731;
+      color: #1f1a16;
+    }
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-align: center;
+      background: linear-gradient(135deg, #f7b731, #f58b4a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    body.dark .section-title {
+      background: linear-gradient(135deg, #facc55, #f7a072);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    /* ----- STICKY NAV ----- */
+    .nav-bar {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: #fff9f0;
+      padding: 0.8rem 0;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+      transition: background 0.3s;
+      backdrop-filter: blur(4px);
+    }
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #f7b731, #e0693a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.5px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      font-weight: 600;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      transition: color 0.2s, transform 0.2s;
+      padding: 0.3rem 0;
+      border-bottom: 2px solid transparent;
+    }
+    .nav-links a:hover {
+      color: #f7b731;
+      transform: translateY(-2px);
+      border-bottom-color: #f7b731;
+    }
+    .theme-toggle {
+      background: #f0e8dd;
+      border: none;
+      border-radius: 40px;
+      padding: 0.4rem 1rem;
+      font-size: 1rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      transition: 0.3s;
+      color: #2d2a24;
+    }
+    body.dark .theme-toggle {
+      background: #3b3532;
+      color: #f0ebe3;
+    }
+    /* ----- HERO ----- */
+    .hero {
+      background: linear-gradient(135deg, #ffe5c4 0%, #ffd7b0 100%);
+      padding: 4rem 0 5rem;
+      border-radius: 0 0 40px 40px;
+      transition: background 0.3s;
+      margin-bottom: 2rem;
+    }
+    .hero-grid {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .hero-text {
+      flex: 1 1 300px;
+    }
+    .hero-text h1 {
+      font-size: 3.4rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    .hero-text h1 span {
+      background: linear-gradient(135deg, #e0693a, #f7b731);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-text p {
+      font-size: 1.2rem;
+      margin: 1.5rem 0 2rem;
+      opacity: 0.8;
+    }
+    .hero-image {
+      flex: 1 1 280px;
+      text-align: center;
+      font-size: 8rem;
+      filter: drop-shadow(0 16px 30px rgba(0,0,0,0.15));
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-14px); }
+      100% { transform: translateY(0); }
+    }
+    /* ----- CARDS / FLAVORS ----- */
+    .flavor-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    .card {
+      background: white;
+      padding: 1.8rem 1rem;
+      border-radius: 30px;
+      text-align: center;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+      transition: all 0.25s ease;
+      border: 1px solid rgba(247, 183, 49, 0.15);
+    }
+    .card:hover {
+      transform: translateY(-12px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(247, 183, 49, 0.2);
+    }
+    .card i {
+      font-size: 3.8rem;
+      color: #f7b731;
+      margin-bottom: 0.5rem;
+    }
+    .card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.3rem;
+    }
+    .card p {
+      opacity: 0.7;
+    }
+    /* OFFERS */
+    .offer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    .offer-card {
+      background: white;
+      border-radius: 40px 20px 40px 20px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+      transition: 0.3s;
+      border-left: 6px solid #f7b731;
+    }
+    .offer-card:hover {
+      transform: scale(1.03);
+      background: #fff6e5;
+    }
+    body.dark .offer-card:hover {
+      background: #3d3530;
+    }
+    /* MENU */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .menu-item {
+      background: white;
+      padding: 1.2rem 1rem;
+      border-radius: 30px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      transition: 0.2s;
+    }
+    .menu-item:hover {
+      background: #fcf3e0;
+      transform: scale(1.02);
+    }
+    .menu-item .price {
+      font-weight: 700;
+      color: #e0693a;
+      font-size: 1.3rem;
+    }
+    body.dark .menu-item .price {
+      color: #f7b731;
+    }
+    /* TESTIMONIALS */
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    .testimonial-card {
+      background: white;
+      padding: 1.8rem 1.2rem;
+      border-radius: 30px 10px 30px 10px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.03);
+      transition: 0.2s;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-6px);
+    }
+    .testimonial-card i {
+      color: #f7b731;
+      font-size: 1.6rem;
+      margin-bottom: 0.3rem;
+    }
+    .testimonial-card h4 {
+      margin-top: 0.8rem;
+      font-weight: 600;
+    }
+    /* GALLERY */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1.2rem;
+      margin: 2rem 0;
+    }
+    .gallery-grid div {
+      background: #ffe6c9;
+      border-radius: 30px;
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      transition: 0.3s;
+      color: #7a5a44;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+    .gallery-grid div:hover {
+      transform: scale(1.04) rotate(1deg);
+      background: #f7dbb5;
+    }
+    body.dark .gallery-grid div {
+      background: #3d3530;
+      color: #f0d5b0;
+    }
+    /* CONTACT */
+    .contact-form {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 40px;
+      max-width: 600px;
+      margin: 2rem auto;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.9rem 1.2rem;
+      margin: 0.5rem 0 1.2rem;
+      border: 1px solid #ddd6cc;
+      border-radius: 60px;
+      font-family: 'Quicksand', sans-serif;
+      transition: 0.2s;
+      background: #fcf8f0;
+    }
+    .contact-form textarea {
+      border-radius: 30px;
+      min-height: 120px;
+      resize: vertical;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #f7b731;
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(247, 183, 49, 0.2);
+    }
+    /* FOOTER */
+    .footer {
+      background: #f5ede3;
+      padding: 2.5rem 0 1.5rem;
+      margin-top: 3rem;
+      border-radius: 40px 40px 0 0;
+      transition: background 0.3s;
+    }
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    .footer-social a {
+      transition: 0.2s;
+      color: #4d3e34;
+    }
+    .footer-social a:hover {
+      transform: scale(1.25);
+      color: #f7b731;
+    }
+    .footer p {
+      text-align: center;
+      opacity: 0.7;
+      font-size: 0.95rem;
+    }
+    /* scroll-top */
+    .scroll-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #f7b731;
+      color: #1f1a16;
+      width: 52px;
+      height: 52px;
+      border-radius: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      box-shadow: 0 6px 18px rgba(247, 183, 49, 0.4);
+      border: none;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.2s;
+      pointer-events: none;
+      z-index: 999;
+    }
+    .scroll-top.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .scroll-top:hover {
+      transform: scale(1.1);
+    }
+    /* responsive */
+    @media (max-width: 680px) {
+      .nav-links { gap: 1rem; }
+      .hero-text h1 { font-size: 2.6rem; }
+      .section-title { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== STICKY NAV ===== -->
+  <nav class="nav-bar" id="navbar">
+    <div class="container nav-container">
+      <div class="logo"><i class="fas fa-ice-cream" style="background: none; -webkit-text-fill-color: #f7b731;"></i> SanoN</div>
+      <div class="nav-links">
+        <a href="#flavors">Flavors</a>
+        <a href="#offers">Offers</a>
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i> <span id="themeLabel">Dark</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <h1>Feel the <span>Chill</span> <br>with SanoN</h1>
+        <p>Handcrafted ice cream, bold flavors & pure joy. Order now and taste the magic.</p>
+        <a href="#contact" class="btn"><i class="fas fa-shopping-bag"></i> Order Now</a>
+      </div>
+      <div class="hero-image">
+        <i class="fas fa-ice-cream"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FLAVORS ===== -->
+  <section id="flavors" class="container">
+    <h2 class="section-title"><i class="fas fa-star"></i> Featured Flavors</h2>
+    <div class="flavor-grid">
+      <div class="card"><i class="fas fa-seedling"></i><h3>Mint Bliss</h3><p>Fresh mint & dark chips</p></div>
+      <div class="card"><i class="fas fa-cherry"></i><h3>Cherry Burst</h3><p>Cherry swirl + fudge</p></div>
+      <div class="card"><i class="fas fa-peanut"></i><h3>Peanut Crunch</h3><p>Caramel & peanuts</p></div>
+      <div class="card"><i class="fas fa-lemon"></i><h3>Lemon Sorbet</h3><p>Zesty & refreshing</p></div>
+    </div>
+  </section>
+
+  <!-- ===== OFFERS ===== -->
+  <section id="offers" class="container">
+    <h2 class="section-title"><i class="fas fa-tags"></i> Special Offers</h2>
+    <div class="offer-grid">
+      <div class="offer-card"><h3>🍦 2 for 1</h3><p>Every Tuesday</p><span style="font-weight:600;">Buy one, get one free</span></div>
+      <div class="offer-card"><h3>🎉 Family Pack</h3><p>4 scoops + toppings</p><span style="font-weight:600;">Save 20%</span></div>
+      <div class="offer-card"><h3>🌙 Late Night</h3><p>After 8 PM</p><span style="font-weight:600;">Extra scoop free</span></div>
+    </div>
+  </section>
+
+  <!-- ===== MENU ===== -->
+  <section id="menu" class="container">
+    <h2 class="section-title"><i class="fas fa-utensils"></i> Our Menu</h2>
+    <div class="menu-grid">
+      <div class="menu-item"><h4>Classic Vanilla</h4><div class="price">$4.5</div></div>
+      <div class="menu-item"><h4>Chocolate Dream</h4><div class="price">$5.0</div></div>
+      <div class="menu-item"><h4>Strawberry Swirl</h4><div class="price">$5.2</div></div>
+      <div class="menu-item"><h4>Mango Tango</h4><div class="price">$5.5</div></div>
+      <div class="menu-item"><h4>Pistachio</h4><div class="price">$5.8</div></div>
+      <div class="menu-item"><h4>Cookie Dough</h4><div class="price">$6.0</div></div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="container">
+    <h2 class="section-title"><i class="fas fa-heart"></i> About Us</h2>
+    <div style="max-width: 720px; margin: 0 auto 2rem; text-align: center; font-size: 1.1rem; line-height: 1.7;">
+      <p>SanoN Singlereate brings you small-batch, artisan ice cream made with love. 
+      We source local ingredients and create unique flavors that spark joy. 
+      From classic to adventurous — every scoop tells a story.</p>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="container">
+    <h2 class="section-title"><i class="fas fa-comment-dots"></i> Testimonials</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-card"><i class="fas fa-star"></i><p>"Best ice cream in town! The mint bliss is heavenly."</p><h4>— Emma</h4></div>
+      <div class="testimonial-card"><i class="fas fa-star"></i><p>"I love the family pack, my kids are obsessed."</p><h4>— James</h4></div>
+      <div class="testimonial-card"><i class="fas fa-star"></i><p>"Unique flavors and great service. 10/10."</p><h4>— Sophia</h4></div>
+    </div>
+  </section>
+
+  <!-- ===== GALLERY ===== -->
+  <section class="container">
+    <h2 class="section-title"><i class="fas fa-images"></i> Gallery</h2>
+    <div class="gallery-grid">
+      <div><i class="fas fa-ice-cream"></i></div>
+      <div><i class="fas fa-cake"></i></div>
+      <div><i class="fas fa-cookie"></i></div>
+      <div><i class="fas fa-strawberry"></i></div>
+      <div><i class="fas fa-mug-hot"></i></div>
+      <div><i class="fas fa-candy-cane"></i></div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="container">
+    <h2 class="section-title"><i class="fas fa-envelope"></i> Contact Us</h2>
+    <div class="contact-form">
+      <form id="contactForm" onsubmit="event.preventDefault(); alert('Thank you! We\'ll get back soon. 🍦');">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Email address" required>
+        <textarea placeholder="Message / Flavor request..." required></textarea>
+        <button type="submit" class="btn" style="width:100%;"><i class="fas fa-paper-plane"></i> Send</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Youtube"><i class="fab fa-youtube"></i></a>
+      </div>
+      <p>&copy; 2026 SanoN Singlereate. Made with <i class="fas fa-heart" style="color:#f7b731;"></i></p>
+    </div>
+  </footer>
+
+  <!-- ===== SCROLL TO TOP ===== -->
+  <button class="scroll-top" id="scrollTopBtn" aria-label="scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    (function() {
+      // ----- DARK MODE -----
+      const toggleBtn = document.getElementById('themeToggle');
+      const themeLabel = document.getElementById('themeLabel');
+      const body = document.body;
+
+      // Check stored preference
+      if (localStorage.getItem('theme') === 'dark') {
+        body.classList.add('dark');
+        themeLabel.textContent = 'Light';
+        toggleBtn.querySelector('i').className = 'fas fa-sun';
+      }
+
+      toggleBtn.addEventListener('click', function() {
+        body.classList.toggle('dark');
+        const isDark = body.classList.contains('dark');
+        themeLabel.textContent = isDark ? 'Light' : 'Dark';
+        toggleBtn.querySelector('i').className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      });
+
+      // ----- SCROLL TO TOP BUTTON -----
+      const scrollBtn = document.getElementById('scrollTopBtn');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 350) {
+          scrollBtn.classList.add('show');
+        } else {
+          scrollBtn.classList.remove('show');
+        }
+      });
+      scrollBtn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // Smooth anchor scroll (optional)
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          const target = document.querySelector(targetId);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
