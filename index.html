@@ -2,634 +2,187 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>Moro Julers · complete</title>
-  <!-- Font Awesome 6 (free) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background: #f9f6f0;
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      color: #1e1b16;
-      line-height: 1.5;
-      padding: 1.5rem 1rem 3rem;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    /* main card – single file container */
-    .site-wrapper {
-      max-width: 1300px;
-      width: 100%;
-      background: white;
-      border-radius: 2.5rem 2.5rem 2rem 2rem;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 4px 18px 0 rgba(0,0,0,0.05);
-      padding: 2rem 1.8rem 3rem;
-      transition: all 0.2s ease;
-    }
-
-    /* ===== HEADER / NAV ===== */
-    .top-bar {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      padding-bottom: 1.5rem;
-      border-bottom: 2px solid #efeae2;
-      margin-bottom: 2.5rem;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      text-decoration: none;
-      color: #1e1b16;
-    }
-
-    .brand i {
-      font-size: 2.2rem;
-      color: #c47b4a;
-      background: #f2ebe2;
-      padding: 0.5rem;
-      border-radius: 18px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.02);
-    }
-
-    .brand h1 {
-      font-size: 1.9rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      background: linear-gradient(145deg, #2c241c, #4f3d2e);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .brand span {
-      font-weight: 300;
-      font-size: 1rem;
-      color: #7f6b58;
-      background: #f0ebe4;
-      padding: 0.2rem 0.8rem;
-      border-radius: 30px;
-      margin-left: 0.2rem;
-      -webkit-text-fill-color: #7f6b58;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.4rem 1.2rem;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: #3d3329;
-      font-weight: 500;
-      font-size: 1rem;
-      padding: 0.5rem 0.2rem;
-      border-bottom: 2px solid transparent;
-      transition: 0.2s;
-    }
-
-    .nav-links a:hover {
-      border-bottom-color: #c47b4a;
-      color: #1e1b16;
-    }
-
-    .nav-links .cta-btn {
-      background: #1e1b16;
-      color: white;
-      padding: 0.5rem 1.4rem;
-      border-radius: 40px;
-      font-weight: 500;
-      border-bottom: none;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      transition: 0.2s;
-    }
-
-    .nav-links .cta-btn:hover {
-      background: #c47b4a;
-      color: white;
-      transform: scale(0.97);
-      border-bottom: none;
-    }
-
-    /* ===== HERO ===== */
-    .hero-section {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2.5rem 2rem;
-      margin-bottom: 3.5rem;
-      align-items: center;
-    }
-
-    .hero-text {
-      flex: 1 1 300px;
-    }
-
-    .hero-text .badge {
-      background: #ede7df;
-      color: #4d3a29;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      padding: 0.25rem 1rem;
-      border-radius: 30px;
-      display: inline-block;
-      margin-bottom: 1.2rem;
-      text-transform: uppercase;
-    }
-
-    .hero-text h2 {
-      font-size: 2.8rem;
-      font-weight: 650;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
-      margin-bottom: 1.2rem;
-      color: #1e1b16;
-    }
-
-    .hero-text h2 i {
-      color: #c47b4a;
-      font-weight: 300;
-    }
-
-    .hero-text p {
-      font-size: 1.1rem;
-      color: #4e4033;
-      max-width: 480px;
-      margin-bottom: 2rem;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem 1.2rem;
-      align-items: center;
-    }
-
-    .btn-primary {
-      background: #1e1b16;
-      border: none;
-      color: white;
-      padding: 0.9rem 2.4rem;
-      border-radius: 60px;
-      font-weight: 600;
-      font-size: 1rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      cursor: pointer;
-      transition: 0.2s;
-      box-shadow: 0 8px 18px -6px rgba(30,27,22,0.2);
-    }
-
-    .btn-primary i {
-      font-size: 1rem;
-    }
-
-    .btn-primary:hover {
-      background: #c47b4a;
-      transform: scale(0.97);
-      box-shadow: 0 6px 14px -4px #b56f40;
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 2px solid #d3c7bb;
-      color: #2c241c;
-      padding: 0.8rem 2rem;
-      border-radius: 60px;
-      font-weight: 500;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .btn-outline i {
-      color: #c47b4a;
-    }
-
-    .btn-outline:hover {
-      border-color: #c47b4a;
-      background: #fcf8f3;
-    }
-
-    .hero-visual {
-      flex: 1 1 260px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .hero-visual .mockup-card {
-      background: #f2ece4;
-      border-radius: 3rem 3rem 2rem 2rem;
-      padding: 1.8rem 1.8rem 1.2rem;
-      width: 100%;
-      max-width: 340px;
-      box-shadow: 0 18px 30px -12px rgba(0,0,0,0.2);
-      transition: 0.25s;
-      border: 1px solid #e6ddd2;
-    }
-
-    .mockup-card .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.8rem;
-    }
-
-    .mockup-card .card-header i {
-      font-size: 1.8rem;
-      color: #6b5a48;
-    }
-
-    .mockup-card .card-header .dots {
-      display: flex;
-      gap: 0.3rem;
-    }
-
-    .dots span {
-      width: 10px;
-      height: 10px;
-      background: #bcab99;
-      border-radius: 20px;
-    }
-
-    .mockup-card .preview-img {
-      background: #ddd0c0;
-      height: 140px;
-      border-radius: 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3.5rem;
-      color: #7e6b58;
-      margin-bottom: 0.8rem;
-      background-image: radial-gradient(circle at 20% 30%, #e9ddd0 2px, transparent 2px), 
-                        radial-gradient(circle at 80% 70%, #e9ddd0 2px, transparent 2px);
-      background-size: 40px 40px;
-    }
-
-    .mockup-card .preview-img i {
-      background: rgba(255, 247, 240, 0.7);
-      padding: 0.8rem;
-      border-radius: 60px;
-      backdrop-filter: blur(2px);
-    }
-
-    .mockup-card .card-footer {
-      display: flex;
-      justify-content: space-between;
-      color: #3d3329;
-      font-weight: 500;
-    }
-
-    /* ===== FEATURES (MORO JULERS) ===== */
-    .section-title {
-      font-size: 1.8rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .section-title i {
-      color: #c47b4a;
-      font-size: 1.8rem;
-    }
-
-    .section-sub {
-      color: #5f4f3d;
-      margin-bottom: 2rem;
-      border-left: 4px solid #dccfc1;
-      padding-left: 1rem;
-      font-weight: 400;
-    }
-
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 2rem 1.5rem;
-      margin: 2.5rem 0 2rem;
-    }
-
-    .feature-card {
-      background: #fcf9f5;
-      padding: 1.5rem 1.2rem;
-      border-radius: 2rem;
-      transition: 0.2s;
-      border: 1px solid #ede7df;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.02);
-    }
-
-    .feature-card:hover {
-      border-color: #c9b8a8;
-      transform: translateY(-4px);
-      box-shadow: 0 16px 24px -12px rgba(0,0,0,0.08);
-    }
-
-    .feature-card i {
-      font-size: 2.4rem;
-      color: #c47b4a;
-      background: #ede3d8;
-      padding: 0.6rem;
-      border-radius: 18px;
-      margin-bottom: 0.8rem;
-      display: inline-block;
-    }
-
-    .feature-card h3 {
-      font-size: 1.2rem;
-      margin-bottom: 0.3rem;
-      font-weight: 600;
-    }
-
-    .feature-card p {
-      color: #5c4d3d;
-      font-size: 0.95rem;
-    }
-
-    /* ===== QUOTE / TESTIMONIAL ===== */
-    .testimonial-block {
-      background: #f3ede6;
-      border-radius: 2.5rem;
-      padding: 2rem 2.5rem;
-      margin: 2.8rem 0 2rem;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
-    }
-
-    .testimonial-block blockquote {
-      font-size: 1.3rem;
-      font-style: italic;
-      font-weight: 400;
-      color: #2e261f;
-      max-width: 600px;
-      position: relative;
-    }
-
-    .testimonial-block blockquote i {
-      color: #c47b4a;
-      margin-right: 0.3rem;
-    }
-
-    .testimonial-block .attribution {
-      font-style: normal;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: #4a3d30;
-    }
-
-    .testimonial-block .attribution i {
-      font-size: 1.8rem;
-      color: #b2947c;
-    }
-
-    .testimonial-block .rating {
-      color: #d9a066;
-      letter-spacing: 0.2rem;
-    }
-
-    /* ===== GALLERY / SHOWCASE ===== */
-    .gallery-mini {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.2rem;
-      justify-content: center;
-      margin: 1.2rem 0 2.8rem;
-    }
-
-    .gallery-item {
-      background: #e9dfd4;
-      border-radius: 2rem;
-      padding: 0.8rem 1.2rem;
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      font-weight: 500;
-      color: #2a221b;
-      border: 1px solid #dccfc1;
-      transition: 0.15s;
-      flex: 0 1 auto;
-    }
-
-    .gallery-item i {
-      font-size: 1.8rem;
-      color: #7d6855;
-    }
-
-    .gallery-item:hover {
-      background: #c47b4a;
-      color: white;
-      border-color: #c47b4a;
-    }
-
-    .gallery-item:hover i {
-      color: white;
-    }
-
-    /* ===== FOOTER ===== */
-    .footer-bottom {
-      margin-top: 3rem;
-      padding-top: 1.8rem;
-      border-top: 2px solid #e5dbd1;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      color: #4e4033;
-    }
-
-    .footer-bottom .socials {
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .footer-bottom .socials a {
-      color: #4e4033;
-      font-size: 1.4rem;
-      transition: 0.2s;
-    }
-
-    .footer-bottom .socials a:hover {
-      color: #c47b4a;
-      transform: scale(1.1);
-    }
-
-    .footer-bottom small {
-      opacity: 0.7;
-      font-weight: 400;
-    }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 700px) {
-      .site-wrapper {
-        padding: 1.5rem 1rem 2rem;
-        border-radius: 2rem;
-      }
-      .top-bar {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0.8rem;
-      }
-      .brand h1 {
-        font-size: 1.8rem;
-      }
-      .nav-links {
-        justify-content: space-between;
-        gap: 0.3rem;
-      }
-      .hero-text h2 {
-        font-size: 2.2rem;
-      }
-      .testimonial-block {
-        padding: 1.5rem;
-      }
-      .testimonial-block blockquote {
-        font-size: 1.1rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero-actions .btn-primary, 
-      .hero-actions .btn-outline {
-        width: 100%;
-        justify-content: center;
-      }
-      .feature-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#B91C1C">
+  <title>Moro Testing Service (MTS) - Online Exam</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="site-wrapper">
-
-  <!-- header -->
-  <header class="top-bar">
-    <a href="#" class="brand" aria-label="Moro Julers">
-      <i class="fas fa-gem"></i>
-      <h1>Moro Julers <span>⏤ complete</span></h1>
-    </a>
-    <div class="nav-links">
-      <a href="#">Studio</a>
-      <a href="#">Collection</a>
-      <a href="#">Journal</a>
-      <a href="#" class="cta-btn"><i class="fas fa-calendar-check"></i> Book</a>
+  <header class="topbar">
+    <div class="brand">
+      <img src="/assets/images/logo.png" alt="MTS Logo" class="brand-logo">
+      <div>
+        <p>Moro Testing Service</p>
+        <h1>MTS Online Exam System</h1>
+      </div>
     </div>
+    <a class="admin-link" href="?admin=1">Admin</a>
   </header>
 
-  <!-- hero -->
-  <section class="hero-section">
-    <div class="hero-text">
-      <div class="badge"><i class="fas fa-star" style="margin-right: 6px;"></i> 2026 · new wave</div>
-      <h2>Moro Julers <br><i>timeless</i> & modern</h2>
-      <p>Handcrafted pieces that tell stories. From raw materials to refined jewelry – every piece is a conversation.</p>
-      <div class="hero-actions">
-        <button class="btn-primary"><i class="fas fa-hand-sparkles"></i> Explore</button>
-        <button class="btn-outline"><i class="fas fa-circle-play"></i> Watch film</button>
+  <main class="shell">
+    <section class="screen active" id="loginScreen">
+      <div class="hero-panel">
+        <p class="eyebrow">Secure Testing Portal</p>
+        <h2>MTS Science Assessment</h2>
+        
       </div>
-    </div>
-    <div class="hero-visual">
-      <div class="mockup-card">
-        <div class="card-header">
-          <i class="fas fa-crown" style="color:#7a624b;"></i>
-          <div class="dots"><span></span><span></span><span></span></div>
+
+      <form class="card login-card" id="loginForm">
+        <p class="eyebrow">Student Login</p>
+        <h2>Candidate Verification</h2>
+        <label for="studentName">Student Full Name</label>
+        <input id="studentName" name="studentName" type="text" required autocomplete="name">
+        <label for="rollNumber">Roll Number</label>
+        <input id="rollNumber" name="rollNumber" type="text" required autocomplete="off">
+        <button class="btn btn-primary" type="submit">Continue</button>
+      </form>
+    </section>
+
+    <section class="screen" id="instructionsScreen">
+      <div class="card split-card">
+        <div>
+          <p class="eyebrow">Instructions</p>
+          <h2>Read Before Starting</h2>
+          <p class="muted" id="candidateInfo"></p>
         </div>
-        <div class="preview-img">
-          <i class="fas fa-ring" style="font-size: 3.2rem;"></i>
+        <button class="btn btn-primary" id="startExamButton" type="button">Start Exam</button>
+      </div>
+
+      <div class="stats-grid">
+        <article class="card stat-card">
+          <span id="totalQuestions">20</span>
+          <p>Total Questions</p>
+        </article>
+        <article class="card stat-card">
+          <span id="totalMarks">20</span>
+          <p>Total Marks</p>
+        </article>
+        <article class="card stat-card">
+          <span>20 min</span>
+          <p>Duration</p>
+        </article>
+      </div>
+
+      <div class="card rules-card">
+        <h3>Exam Rules</h3>
+        <ul>
+          <li>Only one question appears at a time.</li>
+          <li>Do not switch tabs, refresh, copy, paste, or right click during the exam.</li>
+          <li>The timer auto-submits when it reaches zero.</li>
+          <li>Answers are saved locally during the attempt.</li>
+          <li>Download buttons appear only after result page loads.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="screen" id="examScreen">
+      <div class="card exam-head">
+        <div>
+          <p class="eyebrow">Science Assessment</p>
+          <h2 id="questionCounter">Question 1 of 20</h2>
+          <p class="muted" id="saveStatus">Saved</p>
         </div>
-        <div class="card-footer">
-          <span><i class="fas fa-circle" style="color: #b48b6a; font-size: 0.7rem;"></i> 18k gold</span>
-          <span><i class="fas fa-gem" style="color: #a08269;"></i> 0.8ct</span>
+        <div class="timer-box">
+          <strong id="timer">20:00</strong>
+          <span id="warningCount">Warnings: 0/3</span>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- features / pillars -->
-  <div class="section-title">
-    <i class="fas fa-bolt"></i> Moro Julers essence
-  </div>
-  <div class="section-sub">craft · heritage · innovation – in every detail</div>
+      <div class="progress-track">
+        <div id="progressBar"></div>
+      </div>
 
-  <div class="feature-grid">
-    <div class="feature-card">
-      <i class="fas fa-hammer"></i>
-      <h3>Hand-forged</h3>
-      <p>Each piece is individually shaped by master artisans.</p>
-    </div>
-    <div class="feature-card">
-      <i class="fas fa-leaf"></i>
-      <h3>Ethical gold</h3>
-      <p>100% recycled precious metals & traceable gems.</p>
-    </div>
-    <div class="feature-card">
-      <i class="fas fa-arrow-rotate-right"></i>
-      <h3>Lifetime care</h3>
-      <p>Free polishing, resizing and repairs forever.</p>
-    </div>
-    <div class="feature-card">
-      <i class="fas fa-wand-magic-sparkles"></i>
-      <h3>Bespoke</h3>
-      <p>Custom design service – your story, your jewel.</p>
-    </div>
-  </div>
+      <article class="card question-card" id="questionCard"></article>
 
-  <!-- testimonial + rating -->
-  <div class="testimonial-block">
-    <blockquote>
-      <i class="fas fa-quote-left"></i> Moro Julers gave me the most beautiful wedding ring. 
-      The process was personal, transparent, and the result is stunning.
-    </blockquote>
-    <div class="attribution">
-      <i class="fas fa-user-circle"></i> 
-      <span>— Helena R. <span class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span></span>
-    </div>
-  </div>
+      <div class="actions">
+        <button class="btn btn-outline" id="prevButton" type="button">Previous</button>
+        <button class="btn btn-outline" id="clearButton" type="button">Clear Answer</button>
+        <button class="btn btn-primary" id="nextButton" type="button">Next Question</button>
+        <button class="btn btn-danger" id="submitButton" type="button">Submit Exam</button>
+      </div>
+    </section>
 
-  <!-- gallery / quick links -->
-  <div class="gallery-mini">
-    <div class="gallery-item"><i class="fas fa-ring"></i> Engagement</div>
-    <div class="gallery-item"><i class="fas fa-earrings"></i> Earrings</div>
-    <div class="gallery-item"><i class="fas fa-necklace"></i> Necklaces</div>
-    <div class="gallery-item"><i class="fas fa-bracelet"></i> Bracelets</div>
-    <div class="gallery-item"><i class="fas fa-clock"></i> Heirloom</div>
-  </div>
+    <section class="screen" id="resultScreen">
+      <div class="card split-card">
+        <div>
+          <p class="eyebrow">Result</p>
+          <h2 id="resultName">Student Result</h2>
+          <p class="muted" id="resultMeta"></p>
+        </div>
+        <strong class="status-pill" id="passStatus">Pass</strong>
+      </div>
 
-  <!-- footer -->
-  <footer class="footer-bottom">
-    <small>© 2026 Moro Julers · complete single file</small>
-    <div class="socials">
-      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
-      <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-      <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-    </div>
-  </footer>
-</div>
-<!-- end site-wrapper -->
+      <div class="stats-grid result-grid">
+        <article class="card stat-card"><span id="resultTotal">0</span><p>Total Marks</p></article>
+        <article class="card stat-card"><span id="resultObtained">0</span><p>Obtained</p></article>
+        <article class="card stat-card"><span id="resultCorrect">0</span><p>Correct</p></article>
+        <article class="card stat-card"><span id="resultWrong">0</span><p>Wrong</p></article>
+        <article class="card stat-card"><span id="resultPercent">0%</span><p>Percentage</p></article>
+      </div>
+
+      <div class="card download-card">
+        <button class="btn btn-primary" id="downloadPdfButton" type="button">Download Full Result PDF</button>
+        <button class="btn btn-outline" id="downloadWrongButton" type="button">Download Wrong Questions</button>
+        <button class="btn btn-outline" id="downloadCorrectButton" type="button">Download Correct Questions</button>
+      </div>
+
+      <div class="review-list" id="reviewList"></div>
+    </section>
+
+    <section class="screen" id="adminScreen">
+      <form class="card admin-login" id="adminLoginForm">
+        <p class="eyebrow">Secure Admin</p>
+        <h2>Admin Dashboard Login</h2>
+        <label for="adminPassword">Password</label>
+        <input id="adminPassword" type="password" required>
+        <button class="btn btn-primary" type="submit">Open Dashboard</button>
+        <p class="muted">Static drag-and-drop mode stores admin changes in this browser.</p>
+      </form>
+
+      <div class="admin-dashboard" id="adminDashboard">
+        <form class="card admin-form" id="questionForm">
+          <p class="eyebrow">Question Management</p>
+          <h2 id="adminFormTitle">Add Question</h2>
+          <input id="editingId" type="hidden">
+          <label for="adminQuestion">Question</label>
+          <textarea id="adminQuestion" rows="4" required></textarea>
+          <label>Options</label>
+          <input class="option-input" placeholder="Option 1" required>
+          <input class="option-input" placeholder="Option 2" required>
+          <input class="option-input" placeholder="Option 3">
+          <input class="option-input" placeholder="Option 4">
+          <label for="adminAnswer">Correct Answer</label>
+          <input id="adminAnswer" required>
+          <label for="adminExplanation">Explanation</label>
+          <textarea id="adminExplanation" rows="3"></textarea>
+          <label for="adminSubject">Subject</label>
+          <input id="adminSubject" value="Science">
+          <div class="actions left">
+            <button class="btn btn-primary" type="submit">Save Question</button>
+            <button class="btn btn-outline" id="resetQuestionButton" type="button">Reset</button>
+          </div>
+        </form>
+
+        <div class="card">
+          <div class="split-card inner">
+            <div>
+              <p class="eyebrow">Question Bank</p>
+              <h2>Manage Questions</h2>
+            </div>
+            <label class="btn btn-outline file-label">
+              Upload JSON
+              <input id="questionUpload" type="file" accept="application/json">
+            </label>
+          </div>
+          <div class="question-list" id="adminQuestionList"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast-region" id="toastRegion"></div>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

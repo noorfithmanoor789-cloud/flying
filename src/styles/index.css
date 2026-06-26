@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #B91C1C;
+  --primary-dark: #991616;
+  --accent: #D4AF37;
+  --light-bg: #F9F9F9;
+  --dark-text: #1F1F1F;
+  --white: #FFFFFF;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--dark-text);
+  background: var(--light-bg);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@layer components {
+  .card {
+    @apply rounded-[10px] border border-slate-200 bg-white p-5 shadow-mts sm:p-6;
+  }
+
+  .hero-panel {
+    @apply rounded-[10px] p-8 shadow-mts sm:p-10;
+    background:
+      linear-gradient(135deg, rgba(185, 28, 28, 0.96), rgba(31, 31, 31, 0.9)),
+      radial-gradient(circle at top right, rgba(212, 175, 55, 0.35), transparent 36%);
+  }
+
+  .eyebrow {
+    @apply text-xs font-black uppercase tracking-normal text-mts-primary;
+  }
+
+  .input {
+    @apply min-h-12 w-full rounded-lg border border-slate-200 bg-white px-4 outline-none transition focus:border-mts-primary focus:ring-4 focus:ring-red-100;
+  }
+
+  .btn-primary,
+  .btn-outline,
+  .btn-danger {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-5 font-black transition disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply bg-mts-primary text-white shadow-lg shadow-red-900/10 hover:bg-mts-primaryDark;
+  }
+
+  .btn-outline {
+    @apply border border-red-200 bg-red-50 text-mts-primary hover:bg-red-100;
+  }
+
+  .btn-danger {
+    @apply bg-red-600 text-white hover:bg-red-700;
+  }
+
+  .timer {
+    @apply inline-flex min-h-12 min-w-28 items-center justify-center rounded-lg bg-mts-ink px-4 text-xl font-black text-white;
+  }
+
+  .timer-danger {
+    @apply bg-red-600;
+    animation: pulseTimer 1s ease-in-out infinite;
+  }
+
+  .option {
+    @apply flex cursor-pointer items-center gap-3 rounded-lg border border-slate-200 bg-white px-4 py-4 font-bold transition hover:border-red-200 hover:bg-red-50;
+  }
+
+  .option-active {
+    @apply border-mts-primary bg-red-50 ring-4 ring-red-100;
+  }
+
+  .status {
+    @apply inline-flex rounded-full px-4 py-2 text-sm font-black;
+  }
+
+  .status-pass {
+    @apply bg-emerald-100 text-emerald-700;
+  }
+
+  .status-fail {
+    @apply bg-red-100 text-red-700;
+  }
+
+  .review-card {
+    @apply rounded-[10px] border-l-4 bg-white p-5 shadow-mts;
+  }
+
+  .review-correct {
+    @apply border-l-emerald-600;
+  }
+
+  .review-wrong {
+    @apply border-l-red-600;
+  }
+
+  .toast {
+    @apply fixed bottom-5 right-5 z-50 flex max-w-sm items-center gap-2 rounded-lg px-4 py-3 font-bold text-white shadow-mts;
+    background: var(--dark-text);
+  }
+
+  .toast.success {
+    @apply bg-emerald-600;
+  }
+
+  .toast.warning {
+    @apply bg-mts-accent text-mts-ink;
+  }
+
+  .toast.error {
+    @apply bg-red-600;
+  }
+
+  .animate-soft {
+    animation: fadeIn 0.24s ease both;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseTimer {
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 0 0 5px rgba(185, 28, 28, 0.16);
+  }
+}
+
+@media print {
+  header,
+  button {
+    display: none !important;
+  }
+
+  main {
+    padding-top: 0 !important;
+  }
+}

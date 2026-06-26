@@ -1,0 +1,37 @@
+[
+{
+"question": "How many hours of sleep are generally recommended for most adults each night?",
+"options": ["3-4 hours", "5-6 hours", "7-9 hours", "10-12 hours"],
+"correctAnswer": "7-9 hours",
+"explanation": "Most adults need 7-9 hours of sleep per night for optimal health.",
+"subject": "Health Assessment"
+},
+{
+"question": "Which of the following is considered a healthy resting heart rate for most adults?",
+"options": ["20-30 beats per minute", "40-50 beats per minute", "60-100 beats per minute", "120-140 beats per minute"],
+"correctAnswer": "60-100 beats per minute",
+"explanation": "A resting heart rate between 60 and 100 beats per minute is generally considered normal for adults.",
+"subject": "Health Assessment"
+},
+{
+"question": "What is one common sign of dehydration?",
+"options": ["Clear urine", "Increased energy", "Dark yellow urine", "Lower body temperature"],
+"correctAnswer": "Dark yellow urine",
+"explanation": "Dark yellow urine can indicate that the body needs more fluids.",
+"subject": "Health Assessment"
+},
+{
+"question": "Which measurement is commonly used to assess whether a person's weight is appropriate for their height?",
+"options": ["Blood pressure", "Body Mass Index (BMI)", "Heart rate", "Blood sugar level"],
+"correctAnswer": "Body Mass Index (BMI)",
+"explanation": "BMI is a screening tool that relates weight to height.",
+"subject": "Health Assessment"
+},
+{
+"question": "Which habit is most beneficial for maintaining good cardiovascular health?",
+"options": ["Smoking regularly", "Avoiding all physical activity", "Exercising regularly", "Skipping meals frequently"],
+"correctAnswer": "Exercising regularly",
+"explanation": "Regular physical activity helps strengthen the heart and improve overall cardiovascular health.",
+"subject": "Health Assessment"
+}
+]

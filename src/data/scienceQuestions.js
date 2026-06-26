@@ -1,0 +1,146 @@
+export const scienceQuestions = [
+  {
+    question: "Which of the following is a non-renewable source of energy?",
+    options: ["Solar energy", "Wind energy", "Coal", "Hydro energy"],
+    correctAnswer: "Coal",
+    explanation: "Coal is a non-renewable source of energy because it takes millions of years to form.",
+    subject: "Science"
+  },
+  {
+    question: "The unit of force is:",
+    options: ["Joule", "Newton", "Watt", "Ampere"],
+    correctAnswer: "Newton",
+    explanation: "Force is measured in Newtons.",
+    subject: "Science"
+  },
+  {
+    question: "What is the chemical formula of water?",
+    options: ["H2O", "CO2", "O2", "H2O2"],
+    correctAnswer: "H2O",
+    explanation: "Water is made of two hydrogen atoms and one oxygen atom.",
+    subject: "Science"
+  },
+  {
+    question: "Which planet is known as the Red Planet?",
+    options: ["Venus", "Mars", "Jupiter", "Saturn"],
+    correctAnswer: "Mars",
+    explanation: "Mars appears red because of iron oxide on its surface.",
+    subject: "Science"
+  },
+  {
+    question: "The process by which plants make their food is called:",
+    options: ["Respiration", "Photosynthesis", "Transpiration", "Evaporation"],
+    correctAnswer: "Photosynthesis",
+    explanation: "Plants use sunlight to make food through photosynthesis.",
+    subject: "Science"
+  },
+  {
+    question: "What is the SI unit of electric current?",
+    options: ["Volt", "Ohm", "Ampere", "Watt"],
+    correctAnswer: "Ampere",
+    explanation: "Electric current is measured in amperes.",
+    subject: "Science"
+  },
+  {
+    question: "Which acid is present in lemon?",
+    options: ["Acetic acid", "Citric acid", "Lactic acid", "Tartaric acid"],
+    correctAnswer: "Citric acid",
+    explanation: "Lemons contain citric acid.",
+    subject: "Science"
+  },
+  {
+    question: "The largest organ in the human body is:",
+    options: ["Heart", "Liver", "Skin", "Brain"],
+    correctAnswer: "Skin",
+    explanation: "Skin is the largest organ of the human body.",
+    subject: "Science"
+  },
+  {
+    question: "Sound travels fastest in:",
+    options: ["Air", "Water", "Vacuum", "Steel"],
+    correctAnswer: "Steel",
+    explanation: "Sound travels fastest through solids like steel.",
+    subject: "Science"
+  },
+  {
+    question: "Which gas is used by plants during photosynthesis?",
+    options: ["Oxygen", "Carbon dioxide", "Nitrogen", "Hydrogen"],
+    correctAnswer: "Carbon dioxide",
+    explanation: "Plants use carbon dioxide during photosynthesis.",
+    subject: "Science"
+  },
+  {
+    question: "The atomic number of Carbon is:",
+    options: ["6", "8", "12", "14"],
+    correctAnswer: "6",
+    explanation: "Carbon has atomic number 6.",
+    subject: "Science"
+  },
+  {
+    question: "Which of the following is a conductor of electricity?",
+    options: ["Rubber", "Plastic", "Copper", "Wood"],
+    correctAnswer: "Copper",
+    explanation: "Copper is a very good conductor of electricity.",
+    subject: "Science"
+  },
+  {
+    question: "Malaria is caused by:",
+    options: ["Bacteria", "Virus", "Protozoa", "Fungus"],
+    correctAnswer: "Protozoa",
+    explanation: "Malaria is caused by a protozoan parasite.",
+    subject: "Science"
+  },
+  {
+    question: "What is the boiling point of water in Celsius?",
+    options: ["50C", "75C", "100C", "120C"],
+    correctAnswer: "100C",
+    explanation: "Water boils at 100C under normal pressure.",
+    subject: "Science"
+  },
+  {
+    question: "The powerhouse of the cell is:",
+    options: ["Nucleus", "Mitochondria", "Ribosome", "Golgi body"],
+    correctAnswer: "Mitochondria",
+    explanation: "Mitochondria produce energy for the cell.",
+    subject: "Science"
+  },
+  {
+    question: "Which mirror is used in vehicles as rear-view mirror?",
+    options: ["Plane mirror", "Concave mirror", "Convex mirror", "None"],
+    correctAnswer: "Convex mirror",
+    explanation: "Convex mirrors provide a wider field of view.",
+    subject: "Science"
+  },
+  {
+    question: "Vitamin C is also known as:",
+    options: ["Ascorbic acid", "Citric acid", "Lactic acid", "Acetic acid"],
+    correctAnswer: "Ascorbic acid",
+    explanation: "Vitamin C is chemically called ascorbic acid.",
+    subject: "Science"
+  },
+  {
+    question: "What is the speed of light in vacuum?",
+    options: ["3 x 10^6 m/s", "3 x 10^8 m/s", "3 x 10^10 m/s", "3 x 10^12 m/s"],
+    correctAnswer: "3 x 10^8 m/s",
+    explanation: "Light travels at approximately 3 x 10^8 m/s in vacuum.",
+    subject: "Science"
+  },
+  {
+    question: "Which gas is responsible for the greenhouse effect?",
+    options: ["Oxygen", "Nitrogen", "Carbon dioxide", "Hydrogen"],
+    correctAnswer: "Carbon dioxide",
+    explanation: "Carbon dioxide contributes significantly to greenhouse effect.",
+    subject: "Science"
+  },
+  {
+    question: "The pH value of human blood is approximately:",
+    options: ["4.5", "7.4", "8.5", "9.2"],
+    correctAnswer: "7.4",
+    explanation: "Normal human blood pH is around 7.4.",
+    subject: "Science"
+  }
+].map((question, index) => ({
+  id: `SCI-${String(index + 1).padStart(3, "0")}`,
+  type: "mcq",
+  ...question
+}));
