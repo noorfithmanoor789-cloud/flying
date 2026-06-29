@@ -3,26 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Result - College of Nursing Nawabshah</title>
+    <title>Result - Online Examination System</title>
     <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
+    <header class="site-header">
+        <div class="site-header__brand">
+            <img src="../assets/logo.jpeg" alt="Institution Logo" class="site-header__logo" onerror="this.style.visibility='hidden'">
+        </div>
+        <h1 class="site-header__title">Online Examination System</h1>
+        <div class="site-header__meta">
+            <strong id="studentName"></strong>
+            <span>Examination Result</span>
+        </div>
+    </header>
+
     <main class="page">
-        <section class="result-box">
-            <h1 class="brand-title">College of Nursing (Female)</h1>
-            <h2 class="brand-subtitle">Shaheed Benazirabad, Nawabshah</h2>
-            <hr>
-            <h2>Your Test Result</h2>
-            <p>Student: <strong id="studentName"></strong></p>
-            <p>Total Questions Attempted: <strong id="totalQuestions"></strong></p>
-            <p class="score" id="score"></p>
-            <h3 id="percentage"></h3>
+        <section class="result-box result-card">
+            <span class="result-badge" id="resultBadge">Result</span>
+            <h1 class="brand-title">Examination Result</h1>
+            <p class="brand-subtitle">College of Nursing (Female) — Shaheed Benazirabad, Nawabshah</p>
+            <hr class="divider">
+
+            <p class="score-label">Your Score</p>
+            <p class="score" id="score">0 / 0</p>
+            <p class="percentage-display" id="percentage">0%</p>
+
+            <div class="result-stats">
+                <div class="stat-box">
+                    <span class="stat-box__value" id="totalQuestions">0</span>
+                    <span class="stat-box__label">Total Questions</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-box__value" id="correctCount">0</span>
+                    <span class="stat-box__label">Correct</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-box__value" id="wrongCount">0</span>
+                    <span class="stat-box__label">Wrong</span>
+                </div>
+            </div>
+
             <h3 id="status"></h3>
             <p id="unscoredNote"></p>
 
             <div class="actions">
+                <button type="button" class="btn" id="downloadResultBtn">Download Full Result</button>
                 <a href="dashboard.html" class="btn secondary">Back to Dashboard</a>
-                <a href="logout.html" class="btn" id="logoutLink">Logout</a>
+                <a href="logout.html" class="btn secondary" id="logoutLink">Logout</a>
             </div>
         </section>
     </main>

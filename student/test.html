@@ -3,45 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Test - College of Nursing Nawabshah</title>
+    <title>Examination - Online Examination System</title>
     <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
-    <header class="header">
-        <h2>College of Nursing (Female) - Online Examination</h2>
-        <h3>Shaheed Benazirabad, Nawabshah</h3>
-        <p>Student: <strong id="studentName"></strong></p>
+    <header class="site-header">
+        <div class="site-header__brand">
+            <img src="../assets/logo.jpeg" alt="Institution Logo" class="site-header__logo" onerror="this.style.visibility='hidden'">
+        </div>
+        <h1 class="site-header__title">Online Examination System</h1>
+        <div class="site-header__meta">
+            <strong id="studentName"></strong>
+            <span>Exam in Progress</span>
+        </div>
     </header>
 
-    <div class="timer" id="timer">Time Left: 30:00</div>
+    <div class="exam-toolbar hidden" id="examToolbar">
+        <div class="progress-wrap">
+            <div class="progress-label">
+                <span id="progressLabel">Question 1 of 100</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill" style="width: 1%;"></div>
+            </div>
+        </div>
+        <div class="timer" id="timer" aria-live="polite">90:00</div>
+    </div>
 
-    <main class="container">
-        <form id="examForm">
-            <div id="questions"></div>
+    <main class="page">
+        <section class="exam-card start-screen" id="startScreen">
+            <div class="start-screen__icon" aria-hidden="true">&#128221;</div>
+            <h1 class="brand-title">Ready to Begin?</h1>
+            <p class="brand-subtitle">College of Nursing Entrance Examination</p>
+            <hr class="divider">
+
+            <div class="info">
+                <p><strong>Total Questions:</strong> <span id="startTotalQuestions">100</span></p>
+                <p><strong>Time Allowed:</strong> 90 Minutes</p>
+                <p><strong>Navigation:</strong> One question displayed at a time</p>
+            </div>
+
+            <ul class="instruction-list">
+                <li>Read each question carefully before selecting your answer.</li>
+                <li>Use <strong>Next Question</strong> and <strong>Previous Question</strong> to navigate.</li>
+                <li>On the final question, click <strong>Submit Examination</strong>.</li>
+                <li>Your result will be saved automatically upon submission.</li>
+            </ul>
 
             <div class="actions">
-                <button type="submit">Submit Test</button>
+                <button type="button" class="btn success" id="startExamBtn">Start Examination</button>
+                <a href="dashboard.html" class="btn secondary">Back to Dashboard</a>
             </div>
-        </form>
+        </section>
 
-        <form name="exam-results" netlify data-netlify="true" hidden>
-            <input type="hidden" name="form-name" value="exam-results">
-            <input type="hidden" name="student_name">
-            <input type="hidden" name="username">
-            <input type="hidden" name="score">
-            <input type="hidden" name="scored_total">
-            <input type="hidden" name="total_questions">
-            <input type="hidden" name="percentage">
-            <input type="hidden" name="status">
-            <input type="hidden" name="unscored_questions">
-            <input type="hidden" name="submitted_at">
-            <textarea name="answers_json"></textarea>
-        </form>
+        <section class="exam-card hidden" id="examScreen">
+            <form id="examForm">
+                <div id="questions"></div>
+
+                <div class="exam-nav">
+                    <button type="button" class="btn secondary" id="prevBtn" disabled>Previous Question</button>
+                    <button type="button" class="btn" id="nextBtn">Next Question</button>
+                    <button type="submit" class="btn success hidden" id="submitBtn">Submit Examination</button>
+                </div>
+            </form>
+        </section>
     </main>
 
     <script src="../assets/data.js"></script>
     <script src="../assets/app.js"></script>
-    <script>
+    <script type="module">
+        import '../assets/firebase.js';
         ExamApp.initTest();
     </script>
 </body>

@@ -3,38 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - College of Nursing Nawabshah</title>
+    <title>Dashboard - Online Examination System</title>
     <link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
+    <header class="site-header">
+        <div class="site-header__brand">
+            <img src="../assets/logo.jpeg" alt="Institution Logo" class="site-header__logo" onerror="this.style.visibility='hidden'">
+        </div>
+        <h1 class="site-header__title">Online Examination System</h1>
+        <div class="site-header__meta">
+            <strong id="studentName"></strong>
+            <span id="studentUsername"></span>
+        </div>
+    </header>
+
     <main class="page">
         <section class="container">
-            <h1 class="brand-title">College of Nursing (Female)</h1>
-            <h2 class="brand-subtitle">Shaheed Benazirabad, Nawabshah</h2>
-            <hr>
-            <h2>Welcome, <span id="studentName"></span></h2>
-            <p style="text-align:center;">Username: <strong id="studentUsername"></strong></p>
+            <h1 class="brand-title">Examination Dashboard</h1>
+            <p class="brand-subtitle">College of Nursing (Female) — Shaheed Benazirabad, Nawabshah</p>
+            <hr class="divider">
 
             <div class="info">
-                <h3>Test Details:</h3>
-                <p><strong>Total Questions:</strong> 84</p>
+                <h3>Examination Details</h3>
+                <p><strong>Total Questions:</strong> <span id="totalQuestionsCount">100</span></p>
                 <p><strong>Time Duration:</strong> 90 Minutes</p>
-                <p><strong>Date:</strong> 5 April 2026</p>
-                <p><strong>Link Active Till:</strong> 7 April 2026, 5:00 PM</p>
+                <p><strong>Question Type:</strong> Multiple Choice (One question at a time)</p>
+                <p><strong>Passing Criteria:</strong> 50% or above</p>
+            </div>
+
+            <div class="notice">
+                <p><strong>Instructions:</strong></p>
+                <ul class="instruction-list">
+                    <li>Ensure a stable internet connection before starting.</li>
+                    <li>You may navigate between questions using Previous and Next.</li>
+                    <li>Submit only when you have reviewed all answers.</li>
+                    <li>The timer starts once you click "Start Examination".</li>
+                </ul>
             </div>
 
             <div class="actions">
-                <a href="test.html" class="btn">Start Test Now</a>
-            </div>
-
-            <div class="actions">
-                <a href="logout.html" id="logoutLink">Logout</a>
+                <a href="test.html" class="btn success">Start Examination</a>
+                <a href="logout.html" class="btn secondary" id="logoutLink">Logout</a>
             </div>
         </section>
     </main>
 
     <script src="../assets/data.js"></script>
     <script src="../assets/app.js"></script>
+    <script type="module" src="../assets/firebase.js"></script>
     <script>
         ExamApp.initDashboard();
     </script>
